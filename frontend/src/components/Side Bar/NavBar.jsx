@@ -31,10 +31,10 @@ const NavBar = () => {
         trigger={null}
         collapsible
         collapsed={collapsed}
-        width={200}
+        width={190}
         style={{ background: "white" }}
       >
-        <div className="demo-logo-vertical" style={{ background: "white", }}>
+        <div className="demo-logo-vertical" style={{ background: "white" }}>
           <img src={logo} alt="" style={{ width: "100%", height: "auto" }} />
         </div>
         <Menu
@@ -48,11 +48,11 @@ const NavBar = () => {
         >
           <Menu.Item
             key="1"
-            icon={<img src={home} alt="Dashboard" width={20} />}
+            icon={<img src={home} alt="Dashboard" width={16} />}
             style={{
               color: "rgba(164, 29, 48, 1)",
               fontFamily: "Poppins",
-              fontSize: 15,
+              fontSize: 14,
               marginBottom: "20px",
             }}
           >
@@ -60,11 +60,11 @@ const NavBar = () => {
           </Menu.Item>
           <Menu.Item
             key="2"
-            icon={<img src={time} width={20} alt="Dashboard" />}
+            icon={<img src={time} width={16} alt="Dashboard" />}
             style={{
               color: "rgba(145, 145, 145, 1)",
               fontFamily: "Poppins",
-              fontSize: 15,
+              fontSize: 14,
               marginBottom: "20px",
             }}
           >
@@ -72,11 +72,11 @@ const NavBar = () => {
           </Menu.Item>
           <Menu.Item
             key="3"
-            icon={<img src={chart} width={20} alt="Dashboard" />}
+            icon={<img src={chart} width={16} alt="Dashboard" />}
             style={{
               color: "rgba(145, 145, 145, 1)",
               fontFamily: "Poppins",
-              fontSize: 15,
+              fontSize: 14,
               marginBottom: "20px",
             }}
           >
@@ -84,11 +84,11 @@ const NavBar = () => {
           </Menu.Item>
           <Menu.Item
             key="4"
-            icon={<img src={book}  width={20} alt="Dashboard" />}
+            icon={<img src={book} width={16} alt="Dashboard" />}
             style={{
               color: "rgba(145, 145, 145, 1)",
               fontFamily: "Poppins",
-              fontSize: 15,
+              fontSize: 14,
               marginBottom: "20px",
             }}
           >
@@ -96,11 +96,11 @@ const NavBar = () => {
           </Menu.Item>
           <Menu.Item
             key="5"
-            icon={<img src={clipboard} width={20} alt="Dashboard" />}
+            icon={<img src={clipboard} width={16} alt="Dashboard" />}
             style={{
               color: "rgba(145, 145, 145, 1)",
               fontFamily: "Poppins",
-              fontSize: 15,
+              fontSize: 14,
               marginBottom: "20px",
             }}
           >
@@ -108,19 +108,22 @@ const NavBar = () => {
           </Menu.Item>
           <Menu.Item
             key="6"
-            icon={<img src={vector} alt="Dashboard" width={20} />}
+            icon={<img src={vector} alt="Dashboard" width={16} />}
             style={{
               color: "rgba(145, 145, 145, 1)",
               fontFamily: "Poppins",
-              fontSize: 15,
+              fontSize: 14,
               marginBottom: "20px",
             }}
           >
             Classroom
           </Menu.Item>
+          <hr style={{
+            width: '90%'
+          }}/>
           <Menu.Item
             key="7"
-            icon={<img src={logout} alt="Dashboard" width={20}/>}
+            icon={<img src={logout} alt="Dashboard" width={17} />}
             style={{
               color: "rgba(145, 145, 145, 1)",
               fontFamily: "Poppins",
@@ -137,7 +140,7 @@ const NavBar = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            padding: "0 24px",
+            padding: "0 24px 0 0",
             background: colorBgContainer,
           }}
         >
@@ -146,17 +149,26 @@ const NavBar = () => {
             onClick={() => setCollapsed(!collapsed)}
             style={{
               fontSize: "16px",
-              width: 64,
-              height: 64,
+              width: 30,
               marginRight: "auto",
             }}
           />
 
           <div style={{ display: "flex", alignItems: "center" }}>
-            <img src={frame1} alt="" style={{ marginRight: "8px" }} />
-            <img src={frame2} alt="" style={{ marginRight: "8px" }} />
+            <img
+              src={frame1}
+              width={35}
+              alt=""
+              style={{ marginRight: "8px" }}
+            />
+            <img
+              src={frame2}
+              width={35}
+              alt=""
+              style={{ marginRight: "8px" }}
+            />
             <p style={{ margin: 0, marginRight: "8px" }}>John Smith</p>
-            <img src={ProifleIcon} alt="" />
+            <img src={ProifleIcon} width={35} alt="" />
           </div>
         </Header>
 
@@ -164,13 +176,17 @@ const NavBar = () => {
           style={{
             padding: 24,
             minHeight: 280,
-            fontFamily: 'Poppins',
+            fontFamily: "Poppins",
             borderRadius: borderRadiusLG,
           }}
         >
-          <h1 style={{
-            margin: 0
-          }}>Hello John! 👋</h1>
+          <h1
+            style={{
+              margin: 0,
+            }}
+          >
+            Hello John! 👋
+          </h1>
           <p>"Let's inspire and empower young minds. Have a fantastic day!"</p>
           <div
             style={{

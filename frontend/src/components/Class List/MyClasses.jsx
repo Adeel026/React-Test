@@ -28,11 +28,16 @@ const MyClasses = () => {
       style={{
         padding: "20px 0",
         fontFamily: "Poppins",
-        
       }}
     >
       <h2 style={{}}>My Classes</h2>
-      <Card style={{ width: "100%", minWidth: "500px", boxShadow: "0px 0px 4px 0px #00000040", }}>
+      <Card
+        style={{
+          width: "100%",
+          minWidth: "500px",
+          boxShadow: "0px 0px 4px 0px #00000040",
+        }}
+      >
         <List
           header={
             <div style={{ display: "flex" }}>
