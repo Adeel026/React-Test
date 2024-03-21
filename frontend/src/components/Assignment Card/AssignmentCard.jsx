@@ -8,7 +8,17 @@ import CardContent from "@mui/joy/CardContent";
 import Grid from "@mui/joy/Grid";
 
 function AssignmentCard() {
-  const [assignments, setAssignments] = useState([]);
+  // const [assignments, setAssignments] = useState([]);
+  const [assignments, setAssignments] = useState([
+    {
+      assignmentName: "Assignment 1",
+      submissionPercent: 40,
+      submissionCount: 40,
+      percentMarks: 40,
+      averageMarks: 40,
+    },
+ 
+  ]);
   const { value: value1 } = useCountUp({
     isCounting: true,
     duration: 1,
@@ -23,22 +33,22 @@ function AssignmentCard() {
     end: 40,
   });
 
-  useEffect(() => {
-    const fetchAssignments = async () => {
-      try {
-        const response = await fetch(
-          "http://localhost:8000/get-all-assignments"
-        );
-        const data = await response.json();
-        setAssignments(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error fetching assignments:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchAssignments = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "http://localhost:8000/get-all-assignments"
+  //       );
+  //       const data = await response.json();
+  //       setAssignments(data);
+  //       console.log(data);
+  //     } catch (error) {
+  //       console.error("Error fetching assignments:", error);
+  //     }
+  //   };
 
-    fetchAssignments();
-  }, []);
+  //   fetchAssignments();
+  // }, []);
 
   return (
     <div

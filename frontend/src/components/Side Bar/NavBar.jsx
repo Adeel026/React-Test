@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 import logo from "../../Images/logo.png";
 import home from "../../Images/home-2.png";
-import time from "../../Images/calendar-2.png";
 import chart from "../../Images/chart-square.png";
 import book from "../../Images/book.png";
 import clipboard from "../../Images/clipboard-text.png";
@@ -21,122 +20,138 @@ const { Header, Sider, Content } = Layout;
 
 const NavBar = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [shouldHideNavbar, setShouldHideNavbar] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 767 && !collapsed) {
+        setShouldHideNavbar(true);
+      } else {
+        setShouldHideNavbar(false);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [collapsed]);
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+    if (window.innerWidth <= 767 && collapsed) {
+      setShouldHideNavbar(false);
+    }
+  };
+
   return (
     <Layout>
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={collapsed}
-        width={190}
-        style={{ background: "white" }}
-      >
-        <div className="demo-logo-vertical" style={{ background: "white" }}>
-          <img src={logo} alt="" style={{ width: "100%", height: "auto" }} />
-        </div>
-        <Menu
-          theme="light"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
+      {!shouldHideNavbar && (
+        <Sider
+          trigger={null}
+          collapsible
+          collapsed={collapsed}
+          width={190}
+          style={{ background: "white" }}
         >
-          <Menu.Item
-            key="1"
-            icon={<img src={home} alt="Dashboard" width={16} />}
+          <div className="demo-logo-vertical" style={{ background: "white" }}>
+            <img src={logo} alt="" style={{ width: "100%", height: "auto" }} />
+          </div>
+          <Menu
+            theme="light"
+            mode="inline"
+            defaultSelectedKeys={["1"]}
             style={{
-              color: "rgba(164, 29, 48, 1)",
-              fontFamily: "Poppins",
-              fontSize: 14,
-              marginBottom: "20px",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
-            Dashboard
-          </Menu.Item>
-          <Menu.Item
-            key="2"
-            icon={<img src={time} width={16} alt="Dashboard" />}
-            style={{
-              color: "rgba(145, 145, 145, 1)",
-              fontFamily: "Poppins",
-              fontSize: 14,
-              marginBottom: "20px",
-            }}
-          >
-            Time Table
-          </Menu.Item>
-          <Menu.Item
-            key="3"
-            icon={<img src={chart} width={16} alt="Dashboard" />}
-            style={{
-              color: "rgba(145, 145, 145, 1)",
-              fontFamily: "Poppins",
-              fontSize: 14,
-              marginBottom: "20px",
-            }}
-          >
-            Student Reports
-          </Menu.Item>
-          <Menu.Item
-            key="4"
-            icon={<img src={book} width={16} alt="Dashboard" />}
-            style={{
-              color: "rgba(145, 145, 145, 1)",
-              fontFamily: "Poppins",
-              fontSize: 14,
-              marginBottom: "20px",
-            }}
-          >
-            Assignments
-          </Menu.Item>
-          <Menu.Item
-            key="5"
-            icon={<img src={clipboard} width={16} alt="Dashboard" />}
-            style={{
-              color: "rgba(145, 145, 145, 1)",
-              fontFamily: "Poppins",
-              fontSize: 14,
-              marginBottom: "20px",
-            }}
-          >
-            Quizzes
-          </Menu.Item>
-          <Menu.Item
-            key="6"
-            icon={<img src={vector} alt="Dashboard" width={16} />}
-            style={{
-              color: "rgba(145, 145, 145, 1)",
-              fontFamily: "Poppins",
-              fontSize: 14,
-              marginBottom: "20px",
-            }}
-          >
-            Classroom
-          </Menu.Item>
-          <hr
-            style={{
-              width: "90%",
-            }}
-          />
-          <Menu.Item
-            key="7"
-            icon={<img src={logout} alt="Dashboard" width={17} />}
-            style={{
-              color: "rgba(145, 145, 145, 1)",
-              fontFamily: "Poppins",
-              fontSize: 15,
-              marginBottom: "20px",
-            }}
-          >
-            Logout
-          </Menu.Item>
-        </Menu>
-      </Sider>
+            <Menu.Item
+              key="1"
+              icon={<img src={home} alt="Dashboard" width={16} />}
+              style={{
+                color: "rgba(164, 29, 48, 1)",
+                fontFamily: "Poppins",
+                fontSize: 14,
+                marginBottom: "20px",
+              }}
+            >
+              Dashboard
+            </Menu.Item>
+            <Menu.Item
+              key="3"
+              icon={<img src={chart} width={16} alt="Dashboard" />}
+              style={{
+                color: "rgba(145, 145, 145, 1)",
+                fontFamily: "Poppins",
+                fontSize: 14,
+                marginBottom: "20px",
+              }}
+            >
+              Student Reports
+            </Menu.Item>
+            <Menu.Item
+              key="4"
+              icon={<img src={book} width={16} alt="Dashboard" />}
+              style={{
+                color: "rgba(145, 145, 145, 1)",
+                fontFamily: "Poppins",
+                fontSize: 14,
+                marginBottom: "20px",
+              }}
+            >
+              Assignments
+            </Menu.Item>
+            <Menu.Item
+              key="5"
+              icon={<img src={clipboard} width={16} alt="Dashboard" />}
+              style={{
+                color: "rgba(145, 145, 145, 1)",
+                fontFamily: "Poppins",
+                fontSize: 14,
+                marginBottom: "20px",
+              }}
+            >
+              Quizzes
+            </Menu.Item>
+            <Menu.Item
+              key="6"
+              icon={<img src={vector} alt="Dashboard" width={16} />}
+              style={{
+                color: "rgba(145, 145, 145, 1)",
+                fontFamily: "Poppins",
+                fontSize: 14,
+                marginBottom: "20px",
+              }}
+            >
+              Classroom
+            </Menu.Item>
+            <hr
+              style={{
+                width: "90%",
+              }}
+            />
+            <Menu.Item
+              key="7"
+              icon={<img src={logout} alt="Dashboard" width={17} />}
+              style={{
+                color: "rgba(145, 145, 145, 1)",
+                fontFamily: "Poppins",
+                fontSize: 15,
+                marginBottom: "20px",
+              }}
+            >
+              Logout
+            </Menu.Item>
+          </Menu>
+        </Sider>
+      )}
       <Layout>
         <Header
           style={{
@@ -148,7 +163,7 @@ const NavBar = () => {
         >
           <Button
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
+            onClick={toggleCollapsed}
             style={{
               fontSize: "16px",
               width: 30,
