@@ -16,7 +16,7 @@ import ProifleIcon from "../../Images/profile.png";
 import UpcommingClasses from "../Upcomming Classes/UpcommingClasses";
 import MyClasses from "../Class List/MyClasses";
 import AssignmentCard from "../Assignment Card/AssignmentCard";
-
+import "./NavBar.css";
 const { Header, Sider, Content } = Layout;
 
 const NavBar = () => {
@@ -118,9 +118,11 @@ const NavBar = () => {
           >
             Classroom
           </Menu.Item>
-          <hr style={{
-            width: '90%'
-          }}/>
+          <hr
+            style={{
+              width: "90%",
+            }}
+          />
           <Menu.Item
             key="7"
             icon={<img src={logout} alt="Dashboard" width={17} />}
@@ -173,11 +175,13 @@ const NavBar = () => {
         </Header>
 
         <Content
+          className="main-content"
           style={{
             padding: 24,
             minHeight: 280,
             fontFamily: "Poppins",
             borderRadius: borderRadiusLG,
+            width: "100%",
           }}
         >
           <h1
@@ -188,23 +192,11 @@ const NavBar = () => {
             Hello John! 👋
           </h1>
           <p>"Let's inspire and empower young minds. Have a fantastic day!"</p>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-around",
-            }}
-          >
+          <div>
             <Announcements />
             <UpcommingClasses />
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "space-around",
-            }}
-          >
+          <div>
             <MyClasses />
             <AssignmentCard />
           </div>

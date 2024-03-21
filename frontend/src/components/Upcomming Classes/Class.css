@@ -1,6 +1,6 @@
 
 .class-main{
-    /* width: 350px; */
+    width: 100%;
     padding: 15px;
     background-color: 
     #e6bec3;
@@ -9,7 +9,7 @@
     border-left: 3px solid #A41D30;
 }
 .class-main>h1{
-    font-size: 22px;
+    font-size: 17px;
 }
 .class-main>div{
     display: flex;

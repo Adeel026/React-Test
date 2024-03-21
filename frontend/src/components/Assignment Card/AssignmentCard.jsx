@@ -45,11 +45,11 @@ function AssignmentCard() {
       style={{
         marginTop: "20px",
         padding: "10px",
+        width: '100%'
       }}
     >
       <Grid container direction="column" spacing={2}>
         <h2 style={{
-          marginLeft: '2rem'
         }}>Last Deliverable</h2>
 
         <Grid item style={{ padding: "0" }}>
@@ -57,7 +57,7 @@ function AssignmentCard() {
             <Card
               key={index}
               style={{
-                margin: "0 2rem",
+                margin: "0",
                 width: "100%",
                 height: "100%",
                 backgroundColor: "white",

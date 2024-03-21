@@ -1,13 +1,16 @@
 .upcoming-classes > div > div {
   height: 61vh;
   overflow-x: hidden;
+  width: 100%;
+  /* min-width: 300px; */
+  /* min-width: 350px; */
 }
 .upcoming-classes > h1 {
   font-style: 1.5rem;
 }
 .upcoming-classes > div {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   box-shadow: 0px 0px 4px 0px #00000040;
   background-color: white;
@@ -15,6 +18,11 @@
   padding: 10px;
 }
 .upcoming-classes {
-  width: auto;
-  /* max-width: 700px; */
+  width: 100%;
+}
+
+@media (max-width: 450px) {
+  .upcoming-classes > div {
+    flex-wrap: wrap;
+  }
 }

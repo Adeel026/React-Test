@@ -3,8 +3,9 @@ import { Card } from "antd";
 
 function Announcements() {
   const cardStyle = {
-    width: "100%",
-    maxWidth: "350px",
+    // width: "100%",
+    // maxWidth: "auto",
+    // minWidth:"350px",
     height: "auto",
     border: 'none',
     fontFamily: "Poppins, sans-serif",
@@ -36,6 +37,8 @@ function Announcements() {
     <div
       style={{
         borderRadius: "15px",
+        width: '100%',
+        minWidth: '350px'
       }}
     >
       <h2>Announcements</h2>

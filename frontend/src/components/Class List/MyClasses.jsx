@@ -28,13 +28,12 @@ const MyClasses = () => {
       style={{
         padding: "20px 0",
         fontFamily: "Poppins",
+        width: '100%'
       }}
     >
       <h2 style={{}}>My Classes</h2>
       <Card
         style={{
-          width: "100%",
-          minWidth: "500px",
           boxShadow: "0px 0px 4px 0px #00000040",
         }}
       >
